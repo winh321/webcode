@@ -1,0 +1,351 @@
+<html>
+
+<head>
+
+   <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:image" content="https://drive.google.com/uc?id=14N_7Gy2jbsurrTk9Zq3_4c6s8qwJ7eOA" />
+
+<meta property="og:description" content=" You can watch may "Porn Videos"  in this site.">
+
+<meta property="og:title" content="Free FullCar" />
+
+<style type="text/css" media="all">
+
+video{
+
+  box-shadow: 1px -1px 38px 22px rgba(0, 0, 0, 0.51);border: 17px groove rgba(170, 37, 89, 0.62);border-radius: 38px;
+
+}
+
+  #footer {
+
+   position: fixed;
+
+   left: 0px;
+
+   top: 0px;
+
+   width: 100%;
+
+   height:30px;
+
+   background:#E57373;
+
+   color:white
+
+  }
+
+    #back {
+
+   position: fixed;
+
+   right: 50px;
+
+   bottom: 50px;
+
+   width: 60px;
+
+  
+
+   height:60px;
+
+   text-align: center;
+
+   animation: animation_name 5s infinite;
+
+   background:white;
+
+   color: green;
+
+  border-radius: 100px;
+
+  box-shadow: -5px 10px 20px 8px rgba(0, 0, 0, 0.25);
+
+  
+
+  }
+
+  
+
+  
+
+  @-webkit-keyframes animation_name {
+
+   from {
+
+       opacity:0
+
+       ;bottom:65px;
+
+   }
+
+    
+
+   }
+
+   to {
+
+    opacity:0.8;
+
+    bottom:90px;
+
+    
+
+   }
+
+  }
+
+  
+
+   
+
+</style>
+
+</head>
+
+<body style="background:#FFCDD2">
+
+  
+
+  <div id="footer" style="box-shadow: -5px 10px 29px 8px rgba(0, 0, 0, 0.44);padding-top:10px;text-align:center">
+
+  <font>Free Full Car</font>
+
+  
+
+  
+
+<input style="margin-left:30px" type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="          Search Here!">
+
+  
+
+</div>
+
+  <div id="view"></div>
+
+    
+
+      <div style="margin-top:300px;text-align:center">
+
+       loading Data....
+
+    
+
+  </div>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript" charset="utf-8">
+
+  
+
+   var api = new XMLHttpRequest();
+
+   api.open('GET','https://script.google.com/macros/s/AKfycbwH7uBiczAKkdLEa_IM1sGCc7w_AZUUNX0eUO6PH74f4WatTh74/exec',true);
+
+   api.onload = function(data)
+
+   {
+
+    result = JSON.parse(data.target.response);
+
+    if (api.status >= 200 && api.status < 400)
+
+    {
+
+ var tr = "";
+
+     for (var i = 0; i < result.length; i++)
+
+     {
+
+       id = result[i].id;
+
+       title = result[i].title;
+
+      link = result[i].link;
+
+       image = result[i].image;
+
+  
+
+    
+
+       tr += 
+
+       
+
+'<li><br><br><div style="box-shadow: -5px 10px 29px 8px rgba(0, 0, 0, 0.74);border-radius: 36px;text-align:center" id="you"><br><font style="color:blue;margin-left:15px;margin-right:15px">'+title+'</font><br><br><img width="90%" height="140px" onclick="al(`'+link+'`)" src="'+image+'">'+'<br><br></div></li>'
+
+       
+
+     }
+
+a = '<br><ul style="list-style-type:square" id="stateList">' + tr + '</ul><br><br><br><br><br>';
+
+view.innerHTML = a;
+
+back.style.display = "none";
+
+    
+
+    }
+
+    else
+
+    {
+
+     alert("error");
+
+    }
+
+   }
+
+   api.send()
+
+   
+
+   function al(x){
+
+     var e = x;
+
+     var vide = document.getElementById('view');
+
+     vide.innerHTML = '<div id="back"><br><div onclick="go()">back</div></div><br><br><br><br><br><br><br><center><video  width="100%" height="40%" controls src="'+e+'"></center></div><br>';
+
+  
+
+       }
+
+   function go(){
+
+    
+
+    var api = new XMLHttpRequest();
+
+   api.open('GET','https://script.google.com/macros/s/AKfycbwH7uBiczAKkdLEa_IM1sGCc7w_AZUUNX0eUO6PH74f4WatTh74/exec',true);
+
+   api.onload = function(data)
+
+   {
+
+    result = JSON.parse(data.target.response);
+
+    if (api.status >= 200 && api.status < 400)
+
+    {
+
+ var tr = "";
+
+     for (var i = 0; i < result.length; i++)
+
+     {
+
+       id = result[i].id;
+
+       title = result[i].title;
+
+      link = result[i].link;
+
+       image = result[i].image;
+
+  
+
+    
+
+       tr += 
+
+       
+
+'<li><br><br><div style="box-shadow: -5px 10px 29px 8px rgba(0, 0, 0, 0.74);border-radius: 36px;text-align:center" id="you"><br><font style="color:blue;margin-left:15px;margin-right:15px>'+title+'</font><br><br><img width="90%" height="140px" onclick="al(`'+link+'`)" src="'+image+'">'+'<br><br></div></li>'
+
+       
+
+     }
+
+a = '<br><ul style="list-style-type:square" id="stateList">' + tr + '</ul><br><br><br><br><br>';
+
+view.innerHTML = a;
+
+back.style.display = "none"
+
+    
+
+    }
+
+    else
+
+    {
+
+     alert("error");
+
+    }
+
+   }
+
+   api.send()
+
+   }
+
+function mySearchFunction() {
+
+  // Declare variables
+
+  var input, filter, ul, li, item, i, txtValue;
+
+  // User Input
+
+  input = document.getElementById("myInput");
+
+  // Filter, makes search not case sensitive
+
+  filter = input.value.toUpperCase();
+
+  // Grabs the parent element by id
+
+  ul = document.getElementById("stateList");
+
+  // Individual item on list
+
+  li = ul.getElementsByTagName("li");
+
+  // Treats lists items like an array, where each item can be accessed through      it's index
+
+  for (i = 0; i < li.length; i++) {
+
+    item = li[i];
+
+   // Iterate over each list item to see if the value of the input, ignoring         case, matches the inner text or inner html of the item.
+
+    txtValue = item.textContent || item.innerText;
+
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+
+    // Displays list items that are a match, and nothing if no match
+
+      li[i].style.display = "";
+
+    } else {
+
+      li[i].style.display = "none";
+
+    }
+
+  }
+
+}
+
+</script>
+
+</body>
+
+</html>
