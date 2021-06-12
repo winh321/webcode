@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Win Chat Pj</title>
+  
+  <style>
+  #Save{
+  display: none;
+  text-align: center;
+  padding: 12px;
+}
+#Chat {
+  display:none;width:340px;
+}
+#head{
+  text-align:right;background:blue;
+  padding:4px;
+  position: fixed;
+  top: 0px;
+  width: 100%
+}
+body{
+  margin:0px;background:white
+}
+#foot{
+  text-align:center;
+  ;background:blue;
+  padding:10px;
+  position: fixed;
+  bottom: 0px;
+  width:100%;
+}
+#text_data{
+  padding: 8px;
+  width:70%;
+  height:10px;
+}
+#but{
+height:50px
+
+}
+#chatlist{
+  width:340px;
+  overflow-x:scroll;height:500px
+  
+}
+
+  </style>
+</head>
+
+<body>
+  <div id="Save">
+    <input type="text" id="username" placeholder="set your name"><br><br>
+    <input type="text" id="link" placeholder="facebook link"><br><br>
+    <input value="Save your information" onclick="submit()" type="button" placeholder="set your name">
+    
+  </div>
+  <div id="Chat">
+    <div id="head"> <button onclick="find()">Your Info
+      </button>
+    </div>
+    <br>
+    <br><div id="chatlist">
+  
+    </div><br><br><br>
+    <div id="foot">
+      <textarea id="text_data"
+      placeholder="text here">
+      <button onclick="post()" id="but">Send</button>
+    </div>
+  </div>
+  
+  <script>
+    
+    
+save = document.getElementById('Save');
+chat = document.getElementById('Chat');
+chatlist = document.getElementById('chatlist');
+username = document.getElementById('username');
+text_data = document.getElementById('text_data');
+link = document.getElementById('link');
+text_data.value = "";
+
+
+state = JSON.stringify(localStorage.getItem('username'));
+if(state == 'null'){
+  save.style.display = 'block';
+  
+}else{
+  chat.style.display = 'block';
+  _username = state;
+  _link = localStorage.getItem('link');
+  subme(_username);
+  get_data();
+}
+
+function submit(){
+ 
+  localStorage.setItem('username',username.value);
+localStorage.setItem('link',link.value);
+ chat.style.display = 'block';
+  save.style.display = 'none';
+_link = link.value;
+_username = JSON.stringify(localStorage.getItem('username'));
+subme(_username);
+get_data();
+window.location = 'index.html'
+}
+
+function find(){
+  save.style.display = 'block';
+  chat.style.display = 'none';}
+
+function subme(data){
+  var end = data.length - 1;
+  _username = data.substring(1,end);}
+  
+function post(){
+ var data = new FormData();
+data.append('text', text_data.value);
+data.append('name', _username);
+data.append('link', _link);
+
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://script.google.com/macros/s/AKfycbz01Wq9uFLWYFk2UQ96jMmDKXlFal1nhmgA7ooyaWAsTv6K1PY/exec', true);
+xhr.send(data);
+window.location = 'index.html';
+}
+
+function get_data(){
+     var api = new XMLHttpRequest();
+   api.open('GET', 'https://script.google.com/macros/s/AKfycbz01Wq9uFLWYFk2UQ96jMmDKXlFal1nhmgA7ooyaWAsTv6K1PY/exec');
+
+   api.onload = function(data)
+   {
+
+    result = JSON.parse(data.target.response);
+
+    if (api.status >= 200 && api.status < 400)
+    {
+     var tr = "";
+     for (var i = 0; i < result.length; i++)
+     {
+       var Name = result[i].name;
+       var link = result[i].link;
+       if ( Name == _username){
+      tr += "<div style='text-align:right'><b><u onclick='dowork(`"+link+"`)'><em>"+result[i].name+
+      "</b></u></em><br><br><button style='width:250px;color:white;padding:8px;background-color:#0084FF;border-radius:15px;text-align:right'>"+result[i].text+"</button></div><hr><br>";
+      ;
+       }else{
+     tr += "<div style='text-align:left'><b><u onclick='dowork(`"+link+"`)'><em>"+result[i].name+
+      "</b></u></em><br><br><button style='width:250px;color:black;padding:8px;background-color:#E0F2F1;border-radius:15px;text-align:left'>"+result[i].text+"</button></div><hr>";
+      ;
+         
+       }
+    
+    
+     }
+
+     chatlist.innerHTML =  tr;
+     var objDiv = document.getElementById("chatlist");
+
+objDiv.scrollTop = objDiv.scrollHeight;
+
+    }
+    else
+    {
+     alert("error");
+    }
+   }
+   api.send();
+  }
+  function dowork(x){
+window.location = x;
+  }
+  </script>
+</body>
+</html>
