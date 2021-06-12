@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<style>
+#your_div {
+    overflow-x:scroll;
+    height:400px;
+}
+#data {
+  height: 50px
+}
+</style>
+
+<body>
+  <div id="your_div">
+  <div id="data">
+    one
+     </div>  <div id="data">
+    two
+     </div>
+    <div id="data">
+    three
+     </div>
+    <div id="data">
+    four
+     </div>  <div id="data">
+    five
+     </div>
+    <div id="data">
+    six
+     </div>
+       <div id="data">
+    seven
+     </div>  <div id="data">
+    eight
+     </div>
+    <div id="data">
+    nine
+     </div>  <div id="data">
+    ten
+     </div>  <div id="data">
+    eleven
+     </div>
+    <div id="data">
+    twelve
+     </div>
+     </div>
+     
+     
+     
+  <script>
+var objDiv = document.getElementById("your_div");
+objDiv.scrollTop = objDiv.scrollHeight;
+</script>
+</body>
+
+</html>
