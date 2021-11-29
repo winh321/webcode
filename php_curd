@@ -1,0 +1,91 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "myDB";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password,$dbname);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+//echo "Connected successfully";
+
+/*
+// Create database 
+$sql = "create database if not exists myDB";
+if ($conn->query($sql)) {
+  echo "Database created successfully";
+
+} else {
+    echo "Error creating database: " . $conn->error;die();
+} */
+
+/*
+// sql to create table
+$sql = "CREATE TABLE if not exists MyGuests (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)";
+
+if ($conn->query($sql)) {
+  echo "Table MyGuests created successfully";
+} else {
+  echo "Error creating table: " . $conn->error;
+} */
+
+/*
+//Add data
+$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('Thandar', 'Aye', 'whmoney07@gmail.com')";
+
+if ($conn->query($sql)) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+*/
+/*
+// sql to delete a record
+$sql = "DELETE FROM MyGuests WHERE id=2";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Record deleted successfully";
+} else {
+  echo "Error deleting record: " . $conn->error;
+}
+*/
+
+/*
+//update data
+$sql = "UPDATE MyGuests SET lastname='Win Htay' WHERE id=1";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Record updated sucessfully";
+} else {
+  echo "Error updating record: " . $conn->error;
+}
+*/
+
+//get data 
+$sql = "SELECT * FROM MyGuests";
+$result = $conn->query($sql);
+
+ //create an array
+    $json = [];
+    while($row =mysqli_fetch_assoc($result))
+    {
+        $json[] = $row;
+    }
+    echo json_encode($json);
+
+
+$conn->close();
+
+?>
