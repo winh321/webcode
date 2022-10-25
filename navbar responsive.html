@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .body{
+            margin:0px;
+            padding: 0px;
+        }
+        .navbar{
+            padding: 0px;
+            margin:0px;
+            background-color: #333; 
+            font-size: 1.2rem; 
+        }
+
+        .navbar span{
+            color: white;  
+        }
+
+        .topnav{
+            list-style: none;
+            justify-content: space-between;
+        }
+
+        .topnav a, span{
+            text-decoration: none;
+            padding: 8px;
+            color:white;
+        }
+
+        .topnav,.space,.topnav li{
+            display: inline-block;
+        }
+
+        .topnav li a:hover{
+            background-color:blue;
+        }
+
+        .choice{
+            background-color:blue;
+            display:none;
+        }
+
+        @media(max-width:750px){
+            .choice{
+                display: inline-block;
+                float: right;
+                position: relative;
+            }
+
+
+
+            .choice .topnav a{
+                color:white;
+                padding: 8px; 
+                font-size: 0.8rem;
+                
+            
+            }
+
+            .choice .topnav {
+                position: absolute;
+                background-color: #333;
+                margin-top:5px;
+            }
+
+    
+
+            .choice:hover .topnav{
+                display: block;         
+            }
+
+
+            .topnav{
+                display: none;
+                
+            }
+
+            .choice .topnav a:hover {
+             color:yellow;
+             justify-content: center;
+            }
+
+            .navbar{
+                display: flex;
+                font-size: 1rem;
+            }
+
+            .space{
+                width: 100px;
+            }
+
+
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span>Twod Excel</span>
+        <div class="space"></div>
+        <ul class="topnav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Promotion</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <span class="choice">Choice One
+            <div class="topnav">
+                <a href="#">Home</a><br>
+                <a href="#">Products</a><br>
+                <a href="#">Service</a><br>
+                <a href="#">Promotion</a><br>
+                <a href="#">Contact Us</a><br><br>
+            </div>
+        </span>
+   
+
+    </div>
+</body>
+</html>
