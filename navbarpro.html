@@ -104,14 +104,18 @@
         let doc = document.querySelector(".topnav");
 
     
-        cho.addEventListener("mouseover",function(){
-            cho.innerText = "Close Options"
-            doc.style.display = "inline-block"
-        })
 
         cho.addEventListener("mousedown",function(){
+          
+          if (doc.style.display != "none"){
+       
             doc.style.display = "none"
-            cho.innerText = "More Options"
+            cho.innerText = "More Options"}
+            else{
+              doc.style.display = "inline-block";
+              cho.innerText = "Close Options"
+            }
+            
         })
 
 
