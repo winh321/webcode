@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .body{
+            margin:0px;
+            padding: 0px;
+        }
+        .navbar{
+            padding: 0px;
+            margin:0px;
+            background-color: #333; 
+            font-size: 1.2rem; 
+        }
+
+        .navbar span{
+            color: white;  
+        }
+
+        .topnav{
+            list-style: none;
+            justify-content: space-between;
+        }
+
+        .topnav a, span,.navbar a{
+            text-decoration: none;
+            padding: 8px;
+            color:white;
+        }
+
+        .topnav,.navbar span,.topnav li{
+            display: inline-block;
+        }
+
+        .topnav li a:hover{
+            background-color:blue;
+        }
+
+        .choice{
+            background-color:blue;
+            display: none;
+            color:white;
+        }
+
+        @media(max-width:750px){
+            .choice{
+                display: inline-block;
+                position: absolute;
+                right: 8px;
+            }
+
+
+            .topnav{
+                margin-top: 36px;
+                position:absolute;
+                background-color:#333;
+                display:none;
+                padding: 10px;
+                width: 105px;
+                right: 8px;
+            }
+
+            .choice .topnav a{
+                color:red;
+                padding: 8px; 
+                font-size: 0.8rem;
+            }
+
+            .topnav li a:hover{
+            color:yellow;
+            background: none;
+            }
+
+             .navbar li{
+                display: block;
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span>Our Excel</span>
+        <a class="choice">More Options</a>
+        <ul class="topnav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Promotion</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        
+    </div>
+
+    <script>
+
+        let cho = document.querySelector(".choice");
+        let doc = document.querySelector(".topnav");
+
+    
+        cho.addEventListener("mouseover",function(){
+            cho.innerText = "Close Options"
+            doc.style.display = "inline-block"
+        })
+
+        cho.addEventListener("mousedown",function(){
+            doc.style.display = "none"
+            cho.innerText = "More Options"
+        })
+
+
+    
+    </script>
+</body>
+</html>
