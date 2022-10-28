@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=c, initial-scale=FFFFFFFFFFEdcfrcdwsy4
+    ">
+    <title>Document</title>
+    <style>
+        header a,.icons button{
+                text-decoration: none;
+                color:white;
+                padding: 8px;
+        }
+
+        .navbar a{
+            background-color:blue;
+        }
+
+        .icons button{
+            background-color: blueviolet;
+        }
+
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 8px;
+        }
+
+        .icons button {
+            width: 50px;
+        }
+
+        #choose{
+            display: none;
+        }
+
+        @media(max-width:600px){
+            header .icons #choose{
+                display: inline;
+            }
+            header .navbar{
+                position: absolute;
+                right: 8px;
+                left:8px;
+                top: 60px;
+                display:none;      
+            }
+
+            header .navbar a{
+                display: block;  
+            }
+    
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#">Company Name</a>
+        <div class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Service</a>
+            <a href="#">Featured</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="icons">
+            <button id="choose">===</button>
+            <button>one</button>
+            <button>two</button>
+        </div>
+       
+    </header>
+
+    <script>
+        let menu = document.querySelector("#choose");
+        let navbar = document.querySelector(".navbar");
+        menu.onclick = ()=>{
+            if(navbar.style.display != "block"){
+            navbar.style.display = "block";
+            menu.innerText = "X";
+            }else{
+                navbar.style.display = "none";
+                menu.innerText = "===";
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
