@@ -87,7 +87,7 @@ if (mysqli_num_rows($check) > 0){
     echo "<h3 style='color:red'><center> email already exists! </center> </h3>";
 }else{
 
-
+session_start();
 $file = $_FILES['photo']['name'];
 $file_loc = $_FILES['photo']['tmp_name'];
 $folder = "photos/";
@@ -95,12 +95,19 @@ $new_file_name = strtolower($file);
 $randfile = rand(1000,100000).'_'.$new_file_name;
 $final_file = str_replace('','-',$randfile);
 echo("$final_file");
+$_SESSION['email'] = $email;
+
+echo $_SESSION['email'];
+
 move_uploaded_file($file_loc,$folder.$final_file);
 
 $sql = "INSERT INTO users(name,email,password,photo) VALUES ('$name','$email','$password','$final_file')";
+
 mysqli_query($conn,$sql);
 
-header('Location:login.php');
+
+
+header('Location:index.php');
 
 }
 

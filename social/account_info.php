@@ -14,16 +14,20 @@ if(isset($_POST['content'])){
   $new_file_name = strtolower($file);
   $randfile = rand(1000,100000).'_'.$new_file_name;
   $final_file = str_replace('','-',$randfile);
+  $created_at = date('Y-m-d H:i:s');
   
   move_uploaded_file($file_loc,$folder.$final_file);
   
-  $sql = "INSERT INTO posts (name,content,email,profile,photo) VALUES ('$name','$content','$email','$profile','$final_file')";
+  $sql = "INSERT INTO posts (name,content,email,profile,photo,created_at) VALUES ('$name','$content','$email','$profile','$final_file','$created_at')";
   mysqli_query($conn,$sql);
   header('Location:index.php');
   
   
   }
+
+
 ?>
+
 
 
 <!DOCTYPE html>

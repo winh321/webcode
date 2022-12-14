@@ -2,8 +2,27 @@
 
 session_start();
 include_once("database_join.php");
-$sql = "SELECT * FROM posts ";
+$sql = "SELECT * FROM posts ORDER BY id DESC ";
 $result = mysqli_query($conn,$sql);
+
+function getDateTimeDiff($date) {
+  $now_timestamp = strtotime(date('Y-m-d H:i:s'));
+  $diff_timestamp = $now_timestamp - strtotime($date);
+
+  if ($diff_timestamp < 60) {
+      return 'just now';
+  } else if ($diff_timestamp >= 60 && $diff_timestamp < 3600) {
+      return round($diff_timestamp/60).' mins ago';
+  } else if ($diff_timestamp >= 3600 && $diff_timestamp < 86400) {
+      return round($diff_timestamp/3600).' hours ago';
+  } else if ($diff_timestamp >= 86400 && $diff_timestamp < (86400*30)) {
+      return round($diff_timestamp/(86400)).' days ago';
+  } else if ($diff_timestamp >= (86400*30) && $diff_timestamp < (86400*365)) {
+      return round($diff_timestamp/(86400*30)).' months ago';
+  } else {
+      return round($diff_timestamp/(86400*365)).' years ago';
+  }
+}
 
 ?>
 
@@ -29,6 +48,12 @@ $result = mysqli_query($conn,$sql);
   rel="stylesheet"
 />
     <title>Document</title>
+
+    <style>
+      h4{
+        margin-right:20px
+      }
+    </style>
 </head>
 <body>
 
@@ -93,7 +118,12 @@ $result = mysqli_query($conn,$sql);
 $ownersql = "SELECT * FROM users WHERE email='$emailowner' ";
 $owneranswer = mysqli_query($conn,$ownersql);
 $ownerdata=mysqli_fetch_array($owneranswer);
-$photo = "photos/".$ownerdata['photo'];}
+$photo = "photos/".$ownerdata['photo'];
+$name = $ownerdata['name'];
+$_SESSION['photo'] = $ownerdata['photo'];
+$_SESSION['name'] = $ownerdata['name'];
+
+}
 
        
         //show login button user is not signed
@@ -108,7 +138,7 @@ $photo = "photos/".$ownerdata['photo'];}
           
         </div>';
         }else{
-          echo " <a class='nav-link' href='account_info.php'> <img width='40px' height='40px' src='$photo' class='rounded-circle' /> </a> <a  href='logout.php' class=' text-primary m-2'>
+          echo " <h4>$name</h4> <a class='nav-link' href='account_info.php'> <img width='40px' height='40px' src='$photo' class='rounded-circle' /> </a> <a  href='logout.php' class=' text-primary m-2'>
           Logout
         </a>";
         }
@@ -184,7 +214,7 @@ $photo = "photos/".$testdata['photo'];
 
     </div>
     <div class="mt-3">
-    <i class="fa-sharp fa-solid fa-calendar-days text-primary"> <?php echo $row["created_at"]?></i> 
+    <i class="fa-sharp fa-solid fa-calendar-days text-primary"> <?php echo(getDateTimeDiff($row['created_at'])) ?> </i> 
     </div>
     <p class="card-text">  <?php echo $row["content"]?> <a href="#!" class="text-primary">...see more</a></p>
     
