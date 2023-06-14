@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>PHP AJAX Image Upload</title>
+<style>
+
+.btn-upload {
+	padding: 5px 30px;
+	border-radius: 4px;
+	margin-top: 20px;
+	color: #2f2f2f;
+	font-weight: 500;
+	background-color: #ffc72c;
+	border: 1px solid;
+	border-color: #ffd98e #ffbe3d #de9300;
+}
+
+h1{
+    color:green
+}
+
+
+.floor{
+    width:80%;
+    margin:10px;
+    border: 10px solid green;
+    padding: 10px;
+}
+
+</style>
+</head>
+<body>
+
+	<center><h1>Watching Live Video</h1>
+	
+        <div class="floor">
+
+			<div id="Camera">
+
+				<img width="100%" id="myphoto" src="upload/image.png" alt="">
+
+			</div>
+	
+        </div>
+		
+	<center>
+	<script>
+		var photo = document.getElementById('myphoto')
+		//alert(new Date().getTime())
+
+		function photo_change(){
+			
+		photo.src = "upload/image.png?random="+new Date().getTime();	
+			
+		}
+	
+		setInterval(photo_change,50)
+	</script>
+
+
+
+
+</body>
+</html>
