@@ -117,7 +117,14 @@
         `
         videoItem.appendChild(overlay)
         videoItem.onclick = function(){
-            videoItem.querySelector("video").play()
+            if(videoItem.querySelector("video").paused){
+                videoItem.querySelector("video").play()
+            }else{
+                videoItem.querySelector("video").pause()
+            }
+            
+            
+            
         }
         scrollContainer.appendChild(videoItem);
     }
@@ -127,6 +134,7 @@
         createVideoElement(videoUrl);
     });
 });
+
 
 
     
