@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Event Example with 5 Videos</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.video {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <video class="video" autoplay id="video1" src="video1.mp4" height="500" controls></video>
+    <video class="video" id="video2" src="video2.mp4" height="500" controls></video>
+    <video class="video" id="video3" src="video3.mp4" height="500" controls></video>
+    <video class="video" id="video4" src="video2.mp4" height="500" controls></video>
+    <video class="video" id="video5" src="video1.mp4" height="500" controls></video>
+    <script>
+        // Get the video elements
+const videos = [
+    document.getElementById('video1'),
+    document.getElementById('video2'),
+    document.getElementById('video3'),
+    document.getElementById('video4'),
+    document.getElementById('video5')
+];
+
+// Add a scroll event listener to the window
+window.addEventListener('scroll', function () {
+    // Calculate the middle of the viewport
+    const middle = window.innerHeight / 2 + window.scrollY;
+
+    // Find the index of the video closest to the middle
+    const middleVideoIndex = videos.findIndex(video =>
+        middle >= video.offsetTop && middle <= video.offsetTop + video.offsetHeight
+    );
+
+    // Play the middle video and pause the others
+    videos.forEach((video, index) => {
+        if (index === middleVideoIndex) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
