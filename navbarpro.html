@@ -1,126 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/f21e8c6c9b.js" crossorigin="anonymous"></script>
     <style>
-
-        .body{
-            margin:0px;
+        body {
+            margin: 0px;
             padding: 0px;
         }
-        .navbar{
-            padding: 0px;
-            margin:0px;
-            background-color: #333; 
-            font-size: 1.2rem; 
-        }
 
-        .navbar span{
-            color: white;  
-        }
-
-        .topnav{
-            list-style: none;
-            justify-content: space-between;
-        }
-
-        .topnav a, span,.navbar a{
-            text-decoration: none;
+        nav {
+            background-color: black;
+            color: white;
             padding: 8px;
-            color:white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .topnav,.navbar span,.topnav li{
+        .menu {
+            list-style: none;
             display: inline-block;
         }
 
-        .topnav li a:hover{
-            background-color:blue;
+        .menu a {
+            color: white;
+            text-decoration: none;
         }
 
-        .choice{
-            background-color:blue;
+        .menu li {
+            padding: 8px;
+            margin: 12px;
+            display: inline;
+            text-align: center;
+        }
+
+        li:hover {
+            border-bottom: 3px solid white;
+            transition: all ease .20s;
+        }
+
+        .mobile {
+            color: white;
             display: none;
-            color:white;
         }
 
-        @media(max-width:750px){
-            .choice{
+        .mobile i{
+            padding: 8px;
+        }
+
+        @media(max-width:750px) {
+            nav {
+                padding: 18px;
+            }
+
+            .mobile {
                 display: inline-block;
                 position: absolute;
-                right: 8px;
+                /* adjuest as you need */
+                right: 30px;
             }
 
-
-            .topnav{
-                margin-top: 36px;
-                position:absolute;
-                background-color:#333;
-                display:none;
-                padding: 10px;
-                width: 105px;
-                right: 8px;
+            .menu {
+                position: absolute;
+                background-color: #333;
+                display: none;
+                /* menu width as you need */
+                width: 40%;
+                right: 0px;
+                top: 35px;
             }
 
-            .choice .topnav a{
-                color:red;
-                padding: 8px; 
-                font-size: 0.8rem;
-            }
-
-            .topnav li a:hover{
-            color:yellow;
-            background: none;
-            }
-
-             .navbar li{
+            .menu li {
                 display: block;
                 font-size: 1rem;
             }
         }
-
     </style>
 </head>
+
 <body>
-    <div class="navbar">
-        <span>Our Excel</span>
-        <a class="choice">More Options</a>
-        <ul class="topnav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Service</a></li>
-            <li><a href="#">Promotion</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-        
-    </div>
+    <nav>
+        <span class="brand">Product</span>
+        <div class="menu-container">
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <span class="mobile"><i class="fa-solid fa-bars"></i></span>
+    </nav>
 
     <script>
+        let mobile = document.querySelector(".mobile");
+        let menu = document.querySelector(".menu");
 
-        let cho = document.querySelector(".choice");
-        let doc = document.querySelector(".topnav");
-
-    
-
-        cho.addEventListener("mousedown",function(){
-          
-          if (doc.style.display != "none"){
-       
-            doc.style.display = "none"
-            cho.innerText = "More Options"}
-            else{
-              doc.style.display = "inline-block";
-              cho.innerText = "Close Options"
+        mobile.addEventListener("click", function () {
+            console.log(menu.style.display)
+            if (menu.style.display == "none" || menu.style.display == "") {
+                menu.style.display = "block"
+                mobile.innerHTML = '<i class="fa-solid fa-xmark"></i>'
+            } else {
+                menu.style.display = "none";
+                mobile.innerHTML = '<i class="fa-solid fa-bars"></i>'
             }
-            
+
         })
-
-
-
-    
     </script>
 </body>
+
 </html>
