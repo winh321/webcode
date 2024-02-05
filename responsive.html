@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+  h3{
+    color: white;
+  }
+
+  ul{
+    list-style: none;
+  }
+
+  ul li{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  ul li a{
+    text-decoration: none;
+    padding: 8px;
+    color:white;
+  }
+
+  ul li a:hover{
+    border-bottom: 3px solid white;
+    transition: all ease .20s;
+  }
+
+  body{
+    margin:0px;
+    padding: 0px;
+  }
+
+* {
+  box-sizing: border-box;
+}
+
+.left {
+  background-color:black;
+  padding: 20px;
+  float: left;
+  width: 20%; /* The width is 20%, by default */
+  height:100vh;
+}
+
+.box{
+  height: 500px;
+}
+
+.main {
+  background-color: #f1f1f1;
+  padding: 20px;
+  float: left;
+  width: 70%; /* The width is 60%, by default */
+  height:100vh;
+  overflow: scroll;
+}
+
+.right {
+  padding: 20px;
+  float: left;
+  width: 10%; /* The width is 20%, by default */
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width: 800px) {
+  .left, .main, .right {
+  float:none;
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+
+  .left{
+    height: fit-content;
+    position: relative;
+  }
+
+  .main{
+    height: auto;
+    overflow-y: hidden;
+  }
+
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="left">
+  <h3>Html Tutorial</h3>
+  <ul>
+    <li><a href="#box1"> Content 1 </a></li>
+    <li><a href="#box2"> Content 2 </a></li>
+    <li><a href="#box3"> Content 3 </a></li>
+    <li><a href="#box4"> Content 4 </a></li>
+  </ul>
+</div>
+
+<div class="main">
+  <section>
+    <div id="box1" class="box">
+      <h1>Content 1</h1>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate incidunt consequuntur doloribus quaerat aliquid, excepturi rem beatae similique porro nulla, voluptatum eligendi ullam obcaecati aut aperiam molestiae culpa quis ad.
+    </div>
+    <div id="box2" class="box">
+      <h1>Content 2</h1>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate incidunt consequuntur doloribus quaerat aliquid, excepturi rem beatae similique porro nulla, voluptatum eligendi ullam obcaecati aut aperiam molestiae culpa quis ad.
+    </div>
+    <div id="box3" class="box">
+      <h1>Content 3</h1>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate incidunt consequuntur doloribus quaerat aliquid, excepturi rem beatae similique porro nulla, voluptatum eligendi ullam obcaecati aut aperiam molestiae culpa quis ad.
+    </div>
+    <div id="box4" class="box">
+      <h1>Content 4</h1>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate incidunt consequuntur doloribus quaerat aliquid, excepturi rem beatae similique porro nulla, voluptatum eligendi ullam obcaecati aut aperiam molestiae culpa quis ad.
+    </div>
+
+  </section>
+</div>
+
+<div class="right">
+
+</div>
+
+</body>
+</html>
+
